@@ -175,18 +175,11 @@ class App extends Component {
     });
   }
 
-  onSendMessage = message => {
-    this.drone.publish({
-      room: "observable-area",
-      message
-    });
-  };
-
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h1>Chat App</h1>
+          <h1>My Chat App</h1>
         </div>
         <Messages
           messages={this.state.messages}
@@ -196,6 +189,13 @@ class App extends Component {
       </div>
     );
   }
+
+  onSendMessage = message => {
+    this.drone.publish({
+      room: "observable-room",
+      message
+    });
+  };
 }
 
 export default App;

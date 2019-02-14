@@ -5,7 +5,7 @@ export default class Input extends Component {
     text: ""
   };
 
-  onchange(e) {
+  onChange(e) {
     this.setState({ text: e.target.value });
   }
 
