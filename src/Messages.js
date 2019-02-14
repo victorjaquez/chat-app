@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 
 export default class Messages extends Component {
-  render() {
-    const { messages } = this.props;
-    return (
-      <ul className="Messages-list">
-        {messages.map(m => this.renderMessage(m))}
-      </ul>
-    );
-  }
-
   renderMessage(message) {
     const { member, text } = message;
     const { currentMember } = this.props;
@@ -29,6 +20,15 @@ export default class Messages extends Component {
           <div className="text">{text}</div>
         </div>
       </li>
+    );
+  }
+
+  render() {
+    const { messages } = this.props;
+    return (
+      <ul className="Messages-list">
+        {messages.map(m => this.renderMessage(m))}
+      </ul>
     );
   }
 }

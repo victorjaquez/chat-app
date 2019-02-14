@@ -1,7 +1,34 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-export default extends Component {
+export default class Input extends Component {
   state = {
-    text: ''
+    text: ""
+  };
+
+  onchange(e) {
+    this.setState({ text: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.setState({ text: "" });
+    this.props.onSendMessage(this.state.text);
+  }
+
+  render() {
+    return (
+      <div className="Input">
+        <form onSubmit={e => this.onSubmit(e)}>
+          <input
+            onChange={e => this.onChange(e)}
+            value={this.state.text}
+            type="text"
+            placeholder="Enter your message and press ENTER"
+            autofocus="true"
+          />
+          <button>Send</button>
+        </form>
+      </div>
+    );
   }
 }
